@@ -96,5 +96,6 @@ For tests, `AGENTS.md` asks for the focused suite covering the area changed —
 too if you like, but treat unrelated failures as a signal about the machine
 rather than the change: parts of it depend on the local environment, such as
 attached-monitor counts or a sibling checkout, and can fail on a clean tree.
-Confirm by stashing the change (`git stash -u`, so new files go too) and
-re-running, then `git stash pop` and say what you ran in the PR.
+Confirm by re-running without your change — `git stash -u` while it is
+uncommitted (so new files go too), or `git switch` to the default branch once
+it is committed — then restore it and say what you ran in the PR.
