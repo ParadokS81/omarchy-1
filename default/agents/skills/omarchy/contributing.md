@@ -21,8 +21,8 @@ often already fixes the bug, and it is easy to miss when only issues are
 searched:
 
 ```bash
-gh search issues --repo basecamp/omarchy "<keywords>" --limit 10
-gh search prs --repo basecamp/omarchy "<keywords>" --limit 10
+gh search issues --repo omacom/omarchy "<keywords>" --limit 10
+gh search prs --repo omacom/omarchy "<keywords>" --limit 10
 ```
 
 If a PR is already open, add to that discussion instead of filing again.
@@ -36,7 +36,7 @@ Check the bug against the branch development actually happens on. A fresh
 are running:
 
 ```bash
-gh repo view basecamp/omarchy --json defaultBranchRef --jq .defaultBranchRef.name
+gh repo view omacom/omarchy --json defaultBranchRef --jq .defaultBranchRef.name
 ```
 
 Compare against the installed copy in `$OMARCHY_PATH` too; when they agree,
