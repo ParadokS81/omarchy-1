@@ -270,12 +270,12 @@ if [[ -z $FONT_STYLE_FAMILY ]]; then
   fail "fontconfig has no resolvable monospace family for the alacritty style test"
 fi
 
-# omarchy-font-set ends by restarting the shell, notifying, and firing the
-# font-set hook. Stub those so the test never touches the live desktop, and so
-# the command's own exit status can be checked.
+# omarchy-font-set signals running terminals, restarts the shell, notifies, and
+# fires the font-set hook. Stub those so the test never touches the live
+# desktop, and so the command's own exit status can be checked.
 FONT_STYLE_BIN="$FONT_STYLE_TMPDIR/fake-bin"
 mkdir -p "$FONT_STYLE_BIN"
-for cmd in omarchy-restart-shell omarchy-notification-send omarchy-hook; do
+for cmd in pkill omarchy-restart-shell omarchy-notification-send omarchy-hook; do
   printf '#!/bin/bash\nexit 0\n' >"$FONT_STYLE_BIN/$cmd"
   chmod +x "$FONT_STYLE_BIN/$cmd"
 done
